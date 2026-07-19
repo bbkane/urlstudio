@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Studio</title>
+    <link rel="stylesheet" href="./bamboo-1.3.7.min.css" />
+    <link rel="stylesheet" href="./bamboo-overrides.css" />
+</head>
+
+<body>
+    <main>
+        <h1>URL Studio</h1>
+
+        <label for="user-url">User URL</label>
+        <input id="user-url" type="url" placeholder="https://example.com/path?key=value" />
+        <p id="user-url-error" class="error" hidden></p>
+
+        <label for="bookmark-title">Bookmark title (stored as app param t)</label>
+        <input id="bookmark-title" type="text" placeholder="Replacing some stuff" />
+
+        <h2>App URL (share this)</h2>
+        <output id="app-url" aria-live="polite"></output>
+
+        <h2>Generated URL</h2>
+        <output id="generated-url" aria-live="polite"></output>
+
+        <hr />
+
+        <section class="split" aria-label="Original and editable URL panes">
+            <article class="panel readonly">
+                <h2>Original (read-only)</h2>
+
+                <label for="original-origin">Origin</label>
+                <output id="original-origin">-</output>
+
+                <label for="original-path">Path</label>
+                <output id="original-path">-</output>
+
+                <h3>Query parameters</h3>
+                <ul id="original-query-list"></ul>
+            </article>
+
+            <article class="panel">
+                <h2>Editable</h2>
+
+                <label for="editable-origin">Origin</label>
+                <input id="editable-origin" type="url" placeholder="https://example.com" />
+
+                <label for="editable-path">Path</label>
+                <input id="editable-path" type="text" placeholder="/path" />
+
+                <h3>Query parameters</h3>
+                <div id="editable-rows"></div>
+                <button id="add-row" type="button">+ Add row</button>
+            </article>
+        </section>
+    </main>
+
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>

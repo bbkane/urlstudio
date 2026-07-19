@@ -32,3 +32,18 @@ Other:
 - Since you're running in VS Code , use the local browser to test functionality.
 
 Please review this plan and ask any questions, and keep the plan updated with my answers. Once I give the go-ahead, start implementing.
+
+Answers / decisions:
+
+- Use explicit app URL params (not compact encoding).
+- Example app URL:
+	- `https://app.example/?t=Replacing%20some%20stuff&u=https%3A%2F%2Fexample.com%2Fpath%3Fkey%3Dvalue&origin=https%3A%2F%2Fexample.com&path=%2Fnewpath&qk=key&qv=value&qk=otherkey&qv=othervalue`
+	- `t` should appear first when present.
+- Preserve insertion order for query parameter rows.
+- Keep query editor controls on one row where possible; wrap to next line if needed.
+- Keep blank key/value pairs in generated URL unless user explicitly removes that row with `x`.
+- If user presses `x`, visibly highlight that action and remove that key/value row from generated output.
+- Edited path should include leading slash.
+- Include `t` only when non-empty.
+- Initial state should be an empty editor.
+- Mockup control audit: yes, there are enough buttons shown for users to add/remove rows and build arbitrary query parameter sets.

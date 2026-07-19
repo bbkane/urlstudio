@@ -1,0 +1,99 @@
+/* Local overrides layered on top of bamboo-1.3.7.min.css */
+
+:root {
+    --split-gap: 1.25rem;
+    --panel-border: #d7d7d7;
+    --muted-text: #5f5f5f;
+    --removed-bg: #fff3f3;
+    --removed-border: #d66;
+}
+
+main {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.split {
+    display: flex;
+    flex-direction: column;
+    gap: var(--split-gap);
+}
+
+.panel {
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.panel h2 {
+    margin-top: 0;
+}
+
+.readonly {
+    color: inherit;
+}
+
+#app-url,
+#generated-url {
+    display: block;
+    margin: 0.5rem 0 1rem;
+    padding: 0.75rem;
+    border: 1px dashed var(--panel-border);
+    border-radius: 6px;
+    word-break: break-all;
+}
+
+.error {
+    color: #9b1c1c;
+}
+
+.query-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.1rem;
+}
+
+.query-row.query-row-continuation {
+    margin-top: 0;
+    margin-bottom: 0.05rem;
+}
+
+.query-row.query-row-section-end {
+    padding-bottom: 0.45rem;
+    margin-bottom: 0.45rem;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+#editable-rows .query-row.query-row-section-end:last-child {
+    margin-bottom: 0;
+}
+
+.query-row input[name="key"] {
+    width: 12rem;
+}
+
+.query-row input[name="value"] {
+    flex: 1 1 14rem;
+    min-width: 10rem;
+}
+
+.btn-icon {
+    min-width: 2.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.query-row.removed {
+    background: var(--removed-bg);
+    border: 1px solid var(--removed-border);
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+
+@media (max-width: 860px) {
+    .split {
+        gap: 1rem;
+    }
+}
