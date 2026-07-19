@@ -37,8 +37,8 @@ Answers / decisions:
 
 - Use explicit app URL params (not compact encoding).
 - Example app URL:
-	- `https://app.example/?t=Replacing%20some%20stuff&u=https%3A%2F%2Fexample.com%2Fpath%3Fkey%3Dvalue&origin=https%3A%2F%2Fexample.com&path=%2Fnewpath&qk=key&qv=value&qk=otherkey&qv=othervalue`
-	- `t` should appear first when present.
+  - `https://app.example/?t=Replacing%20some%20stuff&u=https%3A%2F%2Fexample.com%2Fpath%3Fkey%3Dvalue&origin=https%3A%2F%2Fexample.com&path=%2Fnewpath&qk=key&qv=value&qk=otherkey&qv=othervalue`
+  - `t` should appear first when present.
 - Preserve insertion order for query parameter rows.
 - Keep query editor controls on one row where possible; wrap to next line if needed.
 - Keep blank key/value pairs in generated URL unless user explicitly removes that row with `x`.

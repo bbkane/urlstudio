@@ -1,61 +1,79 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Studio</title>
     <link rel="stylesheet" href="./bamboo-1.3.7.min.css" />
     <link rel="stylesheet" href="./bamboo-overrides.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <h1>URL Studio</h1>
+      <h1>URL Studio</h1>
 
-        <label for="user-url">Enter URL</label>
-        <input id="user-url" type="url" placeholder="https://example.com/path?key=value" />
-        <p id="user-url-error" class="error" hidden></p>
+      <label for="user-url">Enter URL</label>
+      <input
+        id="user-url"
+        type="url"
+        placeholder="https://example.com/path?key=value"
+      />
+      <p id="user-url-error" class="error" hidden></p>
 
-        <label for="bookmark-title">Bookmark title (to <a id="bookmark-title-edit-link" target="_blank"
-                rel="noreferrer noopener">edit</a> later)</label>
-        <input id="bookmark-title" type="text" placeholder="Replacing some stuff" />
+      <label for="bookmark-title"
+        >Bookmark title (to
+        <a
+          id="bookmark-title-edit-link"
+          target="_blank"
+          rel="noreferrer noopener"
+          >edit</a
+        >
+        later)</label
+      >
+      <input
+        id="bookmark-title"
+        type="text"
+        placeholder="Replacing some stuff"
+      />
 
-        <h2>Generated URL</h2>
-        <output id="generated-url" aria-live="polite"></output>
+      <h2>Generated URL</h2>
+      <output id="generated-url" aria-live="polite"></output>
 
-        <hr />
+      <hr />
 
-        <section class="split" aria-label="Original and editable URL panes">
-            <article class="panel readonly">
-                <h2>URL Data</h2>
+      <section class="split" aria-label="Original and editable URL panes">
+        <article class="panel readonly">
+          <h2>URL Data</h2>
 
-                <ul>
-                    <li>Origin = <output id="original-origin">-</output></li>
-                    <li>Path = <output id="original-path">-</output></li>
-                </ul>
+          <ul>
+            <li>Origin = <output id="original-origin">-</output></li>
+            <li>Path = <output id="original-path">-</output></li>
+          </ul>
 
-                <h3>Query parameters</h3>
-                <ul id="original-query-list"></ul>
-            </article>
+          <h3>Query parameters</h3>
+          <ul id="original-query-list"></ul>
+        </article>
 
-            <article class="panel">
-                <h2>Update URL</h2>
+        <article class="panel">
+          <h2>Update URL</h2>
 
-                <label for="editable-origin">Origin</label>
-                <input id="editable-origin" type="url" placeholder="https://example.com" />
+          <label for="editable-origin">Origin</label>
+          <input
+            id="editable-origin"
+            type="url"
+            placeholder="https://example.com"
+          />
 
-                <label for="editable-path">Path</label>
-                <input id="editable-path" type="text" placeholder="/path" />
+          <label for="editable-path">Path</label>
+          <input id="editable-path" type="text" placeholder="/path" />
 
-                <h3>Query parameters</h3>
-                <div id="editable-rows"></div>
-                <button id="add-row" type="button">+ Add row</button>
-            </article>
-        </section>
+          <h3>Query parameters</h3>
+          <div id="editable-rows"></div>
+          <button id="add-row" type="button">+ Add row</button>
+        </article>
+      </section>
     </main>
 
     <script type="module" src="./index.js"></script>
-</body>
-
+  </body>
 </html>
