@@ -31,4 +31,4 @@ Other:
 
 - Since you're running in VS Code , use the local browser to test functionality.
 
-Please review this plan and ask any questions. Once I give the go-ahead, start implementing.
+Please review this plan and ask any questions, and keep the plan updated with my answers. Once I give the go-ahead, start implementing.
