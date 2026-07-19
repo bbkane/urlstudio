@@ -25,6 +25,10 @@ main {
   padding: 1rem;
 }
 
+.generated-url-panel {
+  margin: 1.25rem 0;
+}
+
 .panel h2 {
   margin-top: 0;
 }
@@ -33,14 +37,14 @@ main {
   color: inherit;
 }
 
-#app-url,
 #generated-url {
   display: block;
   margin: 0.5rem 0 1rem;
-  padding: 0.75rem;
-  border: 1px dashed var(--panel-border);
-  border-radius: 6px;
   word-break: break-all;
+}
+
+.generated-url-panel #generated-url {
+  margin-bottom: 0;
 }
 
 .error {

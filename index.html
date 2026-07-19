@@ -36,19 +36,19 @@
         placeholder="Replacing some stuff"
       />
 
-      <h2>
-        <a
-          id="generated-url-link"
-          href="#"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Generated URL
-        </a>
-      </h2>
-      <output id="generated-url" aria-live="polite"></output>
-
-      <hr />
+      <article class="panel generated-url-panel">
+        <h2>
+          <a
+            id="generated-url-link"
+            href="#"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Generated URL
+          </a>
+        </h2>
+        <output id="generated-url" aria-live="polite"></output>
+      </article>
 
       <section class="split" aria-label="Original and editable URL panes">
         <article class="panel readonly">
@@ -59,7 +59,7 @@
             <li>Path = <output id="original-path">-</output></li>
           </ul>
 
-          <h3>Query parameters</h3>
+          <h3>Query Parameters</h3>
           <ul id="original-query-list"></ul>
         </article>
 
@@ -76,9 +76,9 @@
           <label for="editable-path">Path</label>
           <input id="editable-path" type="text" placeholder="/path" />
 
-          <h3>Query parameters</h3>
+          <h3>Query Parameters</h3>
           <div id="editable-rows"></div>
-          <button id="add-row" type="button">+ Add row</button>
+          <button id="add-row" type="button">+ Add Parameter</button>
         </article>
       </section>
     </main>
