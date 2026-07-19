@@ -111,3 +111,18 @@ test("buildAppHref applies query string to current app URL", () => {
   const href = buildAppHref("https://app.example/", state);
   assert.match(href, /^https:\/\/app\.example\/\?t=A%20title/);
 });
+
+test("buildAppHref keeps title first when serializing multiple app params", () => {
+  const state = createEmptyState();
+  state.title = "Bookmark";
+  state.userUrl = "https://example.com/path?key=value";
+  state.editableOrigin = "https://example.com";
+  state.editablePath = "/newpath";
+  state.editableRows = [createQueryRow("key", "value")];
+
+  const href = buildAppHref("https://app.example/", state);
+  assert.match(
+    href,
+    /^https:\/\/app\.example\/\?t=Bookmark&u=https%3A%2F%2Fexample\.com%2Fpath%3Fkey%3Dvalue&origin=https%3A%2F%2Fexample\.com&path=%2Fnewpath&qk=key&qv=value$/,
+  );
+});
