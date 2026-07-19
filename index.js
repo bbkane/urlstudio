@@ -1,11 +1,11 @@
 import {
-    buildAppHref,
-    buildGeneratedUrl,
     createEmptyState,
     createQueryRow,
     normalizePath,
     parseAppStateFromSearch,
     parseUserUrlIntoState,
+    buildGeneratedUrl,
+    buildAppHref,
 } from "./lib.js";
 
 /** @type {import('./lib.js').AppState} */
@@ -13,7 +13,7 @@ let state = createEmptyState();
 
 const userUrlInput = document.querySelector("#user-url");
 const titleInput = document.querySelector("#bookmark-title");
-const appUrlOut = document.querySelector("#app-url");
+const bookmarkTitleEditLink = document.querySelector("#bookmark-title-edit-link");
 const generatedUrlOut = document.querySelector("#generated-url");
 const userUrlError = document.querySelector("#user-url-error");
 const originalOriginOut = document.querySelector("#original-origin");
@@ -48,7 +48,7 @@ function hydrateFromAppUrl() {
 function syncAppUrl() {
     const href = buildAppHref(window.location.href, state);
     window.history.replaceState({}, "", href);
-    appUrlOut.textContent = href;
+    bookmarkTitleEditLink.href = href;
 }
 
 /**
@@ -153,6 +153,16 @@ function renderEditableRows() {
 /**
  * @returns {void}
  */
+function renderDerivedOutputs() {
+    const output = buildGeneratedUrl(state.editableOrigin, state.editablePath, state.editableRows);
+    generatedUrlOut.textContent = output || "(generated URL will appear here)";
+    userUrlError.textContent = state.userUrlError;
+    userUrlError.hidden = !state.userUrlError;
+}
+
+/**
+ * @returns {void}
+ */
 function render() {
     userUrlInput.value = state.userUrl;
     titleInput.value = state.title;
@@ -160,22 +170,9 @@ function render() {
     editablePathInput.value = state.editablePath;
 
     renderDerivedOutputs();
-
     renderOriginalPanel();
     renderEditableRows();
     syncAppUrl();
-}
-
-/**
- * @returns {void}
- */
-function renderDerivedOutputs() {
-
-    const output = buildGeneratedUrl(state.editableOrigin, state.editablePath, state.editableRows);
-    generatedUrlOut.textContent = output || "(generated URL will appear here)";
-
-    userUrlError.textContent = state.userUrlError;
-    userUrlError.hidden = !state.userUrlError;
 }
 
 /**

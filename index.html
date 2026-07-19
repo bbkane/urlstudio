@@ -13,15 +13,13 @@
     <main>
         <h1>URL Studio</h1>
 
-        <label for="user-url">User URL</label>
+        <label for="user-url">Enter URL</label>
         <input id="user-url" type="url" placeholder="https://example.com/path?key=value" />
         <p id="user-url-error" class="error" hidden></p>
 
-        <label for="bookmark-title">Bookmark title (stored as app param t)</label>
+        <label for="bookmark-title">Bookmark title (to <a id="bookmark-title-edit-link" target="_blank"
+                rel="noreferrer noopener">edit</a> later)</label>
         <input id="bookmark-title" type="text" placeholder="Replacing some stuff" />
-
-        <h2>App URL (share this)</h2>
-        <output id="app-url" aria-live="polite"></output>
 
         <h2>Generated URL</h2>
         <output id="generated-url" aria-live="polite"></output>
@@ -30,20 +28,19 @@
 
         <section class="split" aria-label="Original and editable URL panes">
             <article class="panel readonly">
-                <h2>Original (read-only)</h2>
+                <h2>URL Data</h2>
 
-                <label for="original-origin">Origin</label>
-                <output id="original-origin">-</output>
-
-                <label for="original-path">Path</label>
-                <output id="original-path">-</output>
+                <ul>
+                    <li>Origin = <output id="original-origin">-</output></li>
+                    <li>Path = <output id="original-path">-</output></li>
+                </ul>
 
                 <h3>Query parameters</h3>
                 <ul id="original-query-list"></ul>
             </article>
 
             <article class="panel">
-                <h2>Editable</h2>
+                <h2>Update URL</h2>
 
                 <label for="editable-origin">Origin</label>
                 <input id="editable-origin" type="url" placeholder="https://example.com" />

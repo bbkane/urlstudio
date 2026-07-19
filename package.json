@@ -3,7 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "fmt": "prettier --write \"**/*.{html,js,css,json,md}\" \"!bamboo-1.3.7.min.css\"",
     "start": "node serve.js",
     "test": "node --test"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.5"
   }
 }
