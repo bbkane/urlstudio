@@ -16,6 +16,7 @@ const titleInput = document.querySelector("#bookmark-title");
 const bookmarkTitleEditLink = document.querySelector(
   "#bookmark-title-edit-link",
 );
+const generatedUrlLink = document.querySelector("#generated-url-link");
 const generatedUrlOut = document.querySelector("#generated-url");
 const userUrlError = document.querySelector("#user-url-error");
 const originalOriginOut = document.querySelector("#original-origin");
@@ -166,6 +167,13 @@ function renderDerivedOutputs() {
     state.editableOrigin,
     state.editablePath,
     state.editableRows,
+  );
+  generatedUrlLink.href = output || "#";
+  generatedUrlLink.setAttribute(
+    "aria-label",
+    output
+      ? `Open generated URL: ${output}`
+      : "Generated URL is not available yet",
   );
   generatedUrlOut.textContent = output || "(generated URL will appear here)";
   userUrlError.textContent = state.userUrlError;
