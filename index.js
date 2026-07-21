@@ -12,6 +12,7 @@ import {
 let state = createEmptyState();
 
 const userUrlInput = document.querySelector("#user-url");
+const userUrlExampleLink = document.querySelector("#user-url-example-link");
 const titleInput = document.querySelector("#bookmark-title");
 const bookmarkTitleEditLink = document.querySelector(
   "#bookmark-title-edit-link",
@@ -26,6 +27,18 @@ const editableOriginInput = document.querySelector("#editable-origin");
 const editablePathInput = document.querySelector("#editable-path");
 const editableRowsWrap = document.querySelector("#editable-rows");
 const addRowButton = document.querySelector("#add-row");
+
+const exampleState = {
+  ...createEmptyState(),
+  title: "This saves in the URL",
+  userUrl: "https://example.com/path?key=value",
+  editableOrigin: "https://example.com",
+  editablePath: "/path",
+  editableRows: [
+    createQueryRow("key", "value"),
+    createQueryRow("newkey", "new value"),
+  ],
+};
 
 /**
  * @returns {void}
@@ -54,6 +67,13 @@ function syncAppUrl() {
   const href = buildAppHref(window.location.href, state);
   window.history.replaceState({}, "", href);
   bookmarkTitleEditLink.href = href;
+}
+
+/**
+ * @returns {void}
+ */
+function syncExampleLink() {
+  userUrlExampleLink.href = buildAppHref(window.location.href, exampleState);
 }
 
 /**
@@ -289,3 +309,4 @@ addRowButton.addEventListener("click", () => {
 
 hydrateFromAppUrl();
 render();
+syncExampleLink();
