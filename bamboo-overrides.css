@@ -28,10 +28,6 @@ main {
   gap: 0.75rem;
 }
 
-.generated-url-panel {
-  margin: 1.25rem 0 var(--split-gap);
-}
-
 .panel h2,
 .panel h3 {
   margin: 0;
@@ -50,6 +46,15 @@ main {
   display: block;
   margin: 0;
   word-break: break-all;
+}
+
+.bookmark-link-line {
+  margin: 0;
+}
+
+.section-separator {
+  border-top: 1px solid var(--panel-border);
+  margin: 0.1rem 0 0.35rem;
 }
 
 .field-inline {
@@ -119,10 +124,6 @@ main {
 }
 
 @media (max-width: 860px) {
-  .generated-url-panel {
-    margin: 1rem 0;
-  }
-
   .split {
     gap: 1rem;
   }
