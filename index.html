@@ -13,13 +13,11 @@
   <main>
     <h1>URL Studio</h1>
 
-    <label for="user-url">URL (or try <a id="user-url-example-link" href="#">example</a>)</label>
-    <input id="user-url" type="url" placeholder="https://example.com/path?key=value" />
-    <p id="user-url-error" class="error" hidden></p>
-
     <section class="split" aria-label="Original and editable URL panes">
       <article class="panel readonly">
-        <h2>URL Data</h2>
+        <label for="user-url">URL (or try <a id="user-url-example-link" href="#">example</a>)</label>
+        <input id="user-url" type="url" placeholder="https://example.com/path?key=value" />
+        <p id="user-url-error" class="error" hidden></p>
 
         <ul>
           <li>Origin = <output id="original-origin">-</output></li>
