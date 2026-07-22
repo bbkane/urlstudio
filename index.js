@@ -14,13 +14,9 @@ let state = createEmptyState();
 const userUrlInput = document.querySelector("#user-url");
 const userUrlExampleLink = document.querySelector("#user-url-example-link");
 const titleInput = document.querySelector("#bookmark-title");
-const bookmarkTitleEditLink = document.querySelector(
-  "#bookmark-title-edit-link",
-);
 const generatedUrlOut = document.querySelector("#generated-url");
-const generatedBookmarkLink = document.querySelector(
-  "#generated-bookmark-link",
-);
+const generatedBookmarkLink = document.querySelector("#generated-bookmark-link");
+const saveStateLink = document.querySelector("#save-state-link");
 const userUrlError = document.querySelector("#user-url-error");
 const originalOriginOut = document.querySelector("#original-origin");
 const originalPathOut = document.querySelector("#original-path");
@@ -68,7 +64,10 @@ function hydrateFromAppUrl() {
 function syncAppUrl() {
   const href = buildAppHref(window.location.href, state);
   window.history.replaceState({}, "", href);
-  bookmarkTitleEditLink.href = href;
+  saveStateLink.href = href;
+  saveStateLink.textContent = state.title.trim()
+    ? `${state.title.trim()}: URL Studio`
+    : "URL Studio";
 }
 
 /**
@@ -191,15 +190,9 @@ function renderDerivedOutputs() {
     state.editableRows,
   );
   generatedUrlOut.textContent = output || "(generated URL will appear here)";
-  generatedBookmarkLink.textContent =
-    state.title.trim() || "(set bookmark title)";
+  generatedBookmarkLink.textContent = state.title.trim() || "(Set title below)";
   generatedBookmarkLink.href = output || "#";
-  generatedBookmarkLink.setAttribute(
-    "aria-label",
-    output
-      ? `Open bookmark: ${state.title.trim() || "Untitled"}`
-      : "Generated URL is not available yet",
-  );
+
   userUrlError.textContent = state.userUrlError;
   userUrlError.hidden = !state.userUrlError;
 }

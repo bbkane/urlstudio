@@ -32,16 +32,13 @@
         <h2>Update URL</h2>
 
         <output id="generated-url" class="generated-url-output" aria-live="polite"></output>
-        <p class="bookmark-link-line">
-          Or click:
-          <a id="generated-bookmark-link" href="#" target="_blank" rel="noreferrer noopener"></a>
-        </p>
+        <p class="bookmark-link-line">Or click: <a id="generated-bookmark-link" href="#" target="_blank"
+            rel="noreferrer noopener"></a></p>
 
         <div class="section-separator" aria-hidden="true"></div>
 
         <div class="field-inline">
-          <label for="bookmark-title"><a id="bookmark-title-edit-link" href="#" target="_blank"
-              rel="noreferrer noopener">Title</a></label>
+          <label for="bookmark-title">Title</label>
           <input id="bookmark-title" type="text" placeholder="Link Title" />
         </div>
 
@@ -60,6 +57,13 @@
         <button id="add-row" type="button">+ Add Parameter</button>
       </article>
     </section>
+
+    <footer class="app-footer">
+      <p>Save editor state: <a id="save-state-link" href="#"></a></p>
+      <p>NOTE: All work is local, no state sent to a server</p>
+      <p>Repo: <a href="https://github.com/bbkane/urlstudio/" target="_blank"
+          rel="noreferrer noopener">bbkane/urlstudio</a></p>
+    </footer>
   </main>
 
   <script type="module" src="./index.js"></script>
